@@ -88,20 +88,20 @@ public class Rectangle
 		return colour;
 	}
 	
-	public double xSpeed(double xs)
+	public void xSpeed(double xs)
 	{
-		xPosition + xs;
+		xPosition = xPosition + xs;
 	}
 	
-	public double ySpeed(double ys)
+	public void ySpeed(double ys)
 	{
-		yposition + ys
+		yPosition = yPosition + ys;
 	}
 	
-	public double move (double xm, double ym)
+	public void move (double xm, double ym)
 	{
-		xPosition + xm;
-		yPosition + ym;
+		xPosition = xPosition + xm;
+		yPosition = yPosition + ym;
 	}
 
 	public Rectangle(double x, double y, double w, double h, String col)

@@ -14,6 +14,8 @@ public class Ball
 	private double yPosition;			// The Y coordinate of this Ball
 	private double size;				// The diameter of this Ball
 	private String colour = "WHITE";	// The colour of this Ball
+	private double xspeed;
+	private double yspeed;
 
 										// Permissable colours are 8 bit hexadecimal 
                                         // RGB values in the format #RRGGBB. e.g.
