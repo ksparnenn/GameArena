@@ -15,6 +15,8 @@ public class Rectangle
 	private double width;				// The width of this Rectangle
 	private double height;				// The height of this Rectangle
 	private String colour = "WHITE";	// The colour of this Rectangle
+	private double xSpeed;
+	private double yspeed;
 
 										// Permissable colours are 8 bit hexadecimal 
                                         // RGB values in the format #RRGGBB. e.g.
@@ -84,6 +86,22 @@ public class Rectangle
 	public String getColour()
 	{
 		return colour;
+	}
+	
+	public double xSpeed(double xs)
+	{
+		xPosition + xs;
+	}
+	
+	public double ySpeed(double ys)
+	{
+		yposition + ys
+	}
+	
+	public double move (double xm, double ym)
+	{
+		xPosition + xm;
+		yPosition + ym;
 	}
 
 	public Rectangle(double x, double y, double w, double h, String col)
