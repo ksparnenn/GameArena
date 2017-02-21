@@ -12,14 +12,36 @@ public class recGame
 		int rCount = 0; // right enemy count
 		int score = 0;
 		double speed = 1;
+		int f = 0;
+		int g = 0;
+		boolean lClick = false;
+		boolean rClick = false;
     
 		arena.addRectangle(player); // adds player to stage
 		arena.addRectangle(rBump);
 		arena.addRectangle(lBump);
 		
 		while (true)
-		{
-				
+		{	
+			if (arena.rightPressed()) {
+				f++;
+				if (f > 25) {				
+					rClick = true;
+				}
+			} else {
+				rClick = false;
+				f = 0;
+			}
+			
+			if (arena.leftPressed()) {
+				g++;
+				if (g > 25) {				
+					lClick = true;
+				}
+			} else {
+				lClick = false;
+				g = 0;
+			}
 			if (Math.random() > 0.99)
 			{
 				lBlocks[lCount] = new Rectangle(0, 400, Math.random()*20+60, Math.random()*20+60, "RED", speed, 0);
@@ -39,18 +61,22 @@ public class recGame
 				{
 					System.out.println( "Game Over! Score: " + "" + score);
 					arena.exit();
-				} else if (arena.leftPressed())
+				} else if (lBump.collides(lBlocks[i]))
 				{
-					if (lBump.collides(lBlocks[i]))
+					if (arena.leftPressed() && lClick == false)
 					{
 						arena.removeRectangle(lBlocks[i]);
 						lBlocks[i] = null;
 						score++;
 						speed = speed + 0.25;
 						
+					} else {
+						lBlocks[i].move();
 					}
 				} else {					
 					lBlocks[i].move();
+
+					
 				}
 			}
 			for (int i = 0; i < rCount; i++)
@@ -60,14 +86,16 @@ public class recGame
 				{
 					System.out.println( "Game Over! Score: " + "" + score);
 					arena.exit();
-				} else if (arena.rightPressed())
+				} else if (rBump.collides(rBlocks[i]))
 				{
-					if (rBump.collides(rBlocks[i]))
+					if (arena.rightPressed() && rClick == false)
 					{
 						arena.removeRectangle(rBlocks[i]);
 						rBlocks[i] = null;
 						score++;
 						speed = speed + 0.25;						
+					} else {
+						rBlocks[i].move();
 					}
 				} else {
 					rBlocks[i].move();
