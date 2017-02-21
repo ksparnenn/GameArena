@@ -103,6 +103,14 @@ public class Rectangle
 		this.xPosition = xPosition + xSpeed;
 		this.yPosition = yPosition + ySpeed;
 	}
+	
+	public boolean collides(Rectangle r)
+	{
+		return (xPosition < r.getXPosition() + r.getWidth() &&
+		 xPosition + width > r.getXPosition() &&
+		 yPosition < r.getYPosition() + r.getHeight() &&
+		 yPosition + height > r.getYPosition());
+	}
 
 	public Rectangle(double x, double y, double w, double h, String col, double mx, double my)
 	{
