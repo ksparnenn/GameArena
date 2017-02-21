@@ -16,7 +16,7 @@ public class Rectangle
 	private double height;				// The height of this Rectangle
 	private String colour = "WHITE";	// The colour of this Rectangle
 	private double xSpeed;
-	private double yspeed;
+	private double ySpeed;
 
 										// Permissable colours are 8 bit hexadecimal 
                                         // RGB values in the format #RRGGBB. e.g.
@@ -88,28 +88,30 @@ public class Rectangle
 		return colour;
 	}
 	
-	public void xSpeed(double xs)
+	public void setXSpeed(double xs)
 	{
-		xPosition = xPosition + xs;
+		this.xSpeed = xs;
 	}
 	
-	public void ySpeed(double ys)
+	public void setYSpeed(double ys)
 	{
-		yPosition = yPosition + ys;
+		this.ySpeed =  ys;
 	}
 	
-	public void move (double xm, double ym)
+	public void move ()
 	{
-		xPosition = xPosition + xm;
-		yPosition = yPosition + ym;
+		this.xPosition = xPosition + xSpeed;
+		this.yPosition = yPosition + ySpeed;
 	}
 
-	public Rectangle(double x, double y, double w, double h, String col)
+	public Rectangle(double x, double y, double w, double h, String col, double mx, double my)
 	{
 		xPosition = x;
 		yPosition = y;
 		width = w;
 		height = h;
 		colour = col;
+    xSpeed = mx;
+    ySpeed = my;
 	}	
 }
